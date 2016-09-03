@@ -1,0 +1,11 @@
+cadastro de professores
+modulo responsabilidade do professor
+cadastro de faltas e notas
+porcentagem de presença dos alunos
+conceitos de notas a,b,c,d ou e, aprovado com c (2 notas, uma na metade e outra no final)
+75% de presença nas aulas pra aprovação
+2 horas/semanas
+curso com cargas horarias totais
+carga horaria semanal entre 8 a 14 horas semanais
+observacao em cadastro de professores
+plantao de duvidas = carga horaria total-disponivel joga no plantao

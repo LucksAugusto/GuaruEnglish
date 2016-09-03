@@ -1,0 +1,34 @@
+sistema para escola de idiomas, porte médio.
+
+guaruenglish
+ingles,frances,alemao, portugues para estrangeiros
+
+media de 500 alunos, manha,tarde e noite
+
+professores: por hora/aula
+secretaria: 3 funcionarios
+
+matricula: contrato de curso onde o aluno define o prazo de pagamento ou integral, registrado em ficha do aluno
+(todos os dados do aluno) nome, endereco, telefone de contato, documentos, curso, modulo e etc
+
+promoçoes de acordo com a condiçao de pagamento
+
+modulos de idiomas aumentam conforme avança o curso
+
+perfil de usuarios: secretaria, professor e administrador
+
+módulo de notas dos alunos
+
+terminal de consulta dos alunos com notas, faltas e etc(70% de presença pelo menos)
+
+modulo basico 30 horas, intermediario 50, avançado 100
+
+cadastro de usuários feito apenas pela secretaria
+
+foco no módulo de matrícula com geraçao de certificado e etc
+
+relatorios: certificado e declaraçao de matricula
+
+cadastro de professores: com ativos e inativos
+
+priorizar duas questoes: cadastro de alunos, cadastrar cursos e as turmas que serão oferecidas.
