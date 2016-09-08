@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+.container{
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #BDBDBD;
+}
+body {
+	font-family: sans-serif;
+	box-sizing: border-box;
+	background-color: #BDBDBD;
+	padding: 0;
+	margin: 0;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.menu {
+	float:left;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Área do Aluno</title>
+</h:head>
+<h:body>
+	<div class="container">
+	<h:form>
+		<h2>Módulos Feitos</h2>
+        <br />
+         <h:form id="form">
+		    <p:growl id="msgs" showDetail="true" />
+		 
+		    <p:dataTable id="basicDT" var="aulas" value="#{alunoMB.aulasList}">
+		        <p:column headerText="Nome">
+		            <h:outputText value="#{aulas.id_aluno}" />
+		        </p:column>
+		        <p:column headerText="Professor">
+		            <h:outputText value="#{aulas.id_professor}" />
+		        </p:column>
+		        <p:column headerText="Módulo">
+		            <h:outputText value="#{aulas.id_modulo}" />
+		        </p:column>
+		        <p:column headerText="Nota 1">
+		            <h:outputText value="#{aulas.nota1}" />
+		        </p:column>
+		        <p:column headerText="Nota 2">
+		            <h:outputText value="#{aulas.nota2}" />
+		        </p:column>
+		        <p:column headerText="Nota Final">
+		            <h:outputText value="#{aulas.notaFinal}" />
+		        </p:column>
+		        <p:column headerText="Qtde Aulas">
+		            <h:outputText value="#{aulas.quantidadeAulas}" />
+		        </p:column>
+		        <p:column headerText="Faltas">
+		            <h:outputText value="#{aulas.faltas}" />
+		        </p:column>
+		        <p:column headerText="Frequencia">
+		            <h:outputText value="#{aulas.frequencia}" />
+		        </p:column>
+		    </p:dataTable>
+		    
+		    <br />
+	        <p:commandButton  action="#{alunoMB.request}" value="Fazer Requerimento" ajax="false" style="width: 210px" />
+	        <p:commandButton  action="#{loginMB.logout}" value="Sair" ajax="false" style="width: 210px" />
+	        <br />
+		    </h:form>
+	</h:form>
+	</div>
+	
+</h:body>
+</html>

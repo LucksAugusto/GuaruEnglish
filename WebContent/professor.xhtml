@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+.container{
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #BDBDBD;
+}
+body {
+	font-family: sans-serif;
+	background-color: #BDBDBD;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+form, h2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.menu {
+	float:left;
+}
+ 
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Professor</title>
+</h:head>
+<h:body>
+	<div class="container">
+		<h2>Atribuir Nota</h2>
+        <br />
+    <h:form id="form">
+   		<h:outputLabel for="ra" value="RA Aluno:"/>
+		<p:inputText style="width: 400px" required="true" id="ra" value="#{professorMB.aulas.id_aluno}"/>
+		<br />
+		<h:outputLabel for="id" value="Código Professor:"/>
+		<p:inputText style="width: 400px" required="true" id="id" value="#{professorMB.aulas.id_professor}"/>
+		<br />
+		<h:outputLabel for="modulo" value="Código Módulo:"/>
+		<p:inputText style="width: 400px" required="true" id="modulo" value="#{professorMB.aulas.id_modulo}"/>
+		<br />
+		<h:outputLabel for="n1" value="Nota 1:"/>
+		<p:inputText style="width: 400px" required="true" id="n1" value="#{professorMB.aulas.nota1}"/>
+		<br />
+		<h:outputLabel for="n2" value="Nota 2:"/>
+		<p:inputText style="width: 400px" required="true" id="n2" value="#{professorMB.aulas.nota2}"/>
+		<br />
+		<h:outputLabel for="nf" value="Nota Final:"/>
+		<p:inputText style="width: 400px" required="true" id="nf" value="#{professorMB.aulas.notaFinal}"/>
+		<br />
+		<h:outputLabel for="qtde" value="Quantidade Aula:"/>
+		<p:inputText style="width: 400px" required="true" id="qtde" value="#{professorMB.aulas.quantidadeAulas}"/>
+		<br />
+		<h:outputLabel for="faltas" value="Faltas:"/>
+		<p:inputText style="width: 400px" required="true" id="faltas" value="#{professorMB.aulas.faltas}"/>
+		<br />
+		<h:outputLabel for="freq" value="Frequencia:"/>
+		<p:inputText style="width: 400px" required="true" id="freq" value="#{professorMB.aulas.frequencia}"/>
+		<br />
+		<p:commandButton  action="#{professorMB.atribuir}" value="Atribuir Nota" ajax="false" style="width: 210px" />
+	    <p:commandButton  action="#{loginMB.logout}" value="Sair" ajax="false" style="width: 210px" />
+        <br />
+    </h:form>
+	</div>
+
+</h:body>
+</html>
