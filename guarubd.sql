@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Set-2016 às 05:38
+-- Generation Time: 03-Out-2016 às 01:43
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aluno` (
+  `id` int(11) NOT NULL,
   `ra` int(11) NOT NULL,
   `modulo` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
@@ -44,9 +45,11 @@ CREATE TABLE `aluno` (
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`ra`, `modulo`, `nome`, `senha`, `rg`, `pagamento`, `desconto`, `dataMatricula`, `parcelas`, `requerimento`, `ativado`) VALUES
-(1, 1, 'Leonardo Andrade', 'leonardo.andrade', '132.222.113-2', 200, 0, '2016-01-04', 1, 1, 1),
-(2, 1, 'Giovanni Anderson', 'giovanni.anderson', '221.145.897-5', 100, 0, '2016-01-04', 2, 1, 1);
+INSERT INTO `aluno` (`id`, `ra`, `modulo`, `nome`, `senha`, `rg`, `pagamento`, `desconto`, `dataMatricula`, `parcelas`, `requerimento`, `ativado`) VALUES
+(1, 1, 1, 'Leonardo Andrade', 'leonardo.andrade', '132.222.113-2', 200, 0, '2016-01-04', 1, 1, 1),
+(2, 2, 1, 'Giovanni Anderson', 'giovanni.anderson', '221.145.897-5', 100, 0, '2016-01-04', 2, 1, 1),
+(3, 3, 1, 'Simone Rosa', 'simone.rosa', '123kad11', 299, 0, '2016-01-04', 1, 0, 1),
+(4, 1, 2, 'Leonardo Andrade', 'leonardo.andrade', '132.222.113-2', 200, 0, '2016-01-04', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -71,8 +74,9 @@ CREATE TABLE `aulas` (
 --
 
 INSERT INTO `aulas` (`id_aluno`, `id_professor`, `id_modulo`, `nota1`, `nota2`, `notaFinal`, `quantidadeAulas`, `faltas`, `frequencia`) VALUES
-(1, 1, 1, NULL, NULL, NULL, 0, 0, NULL),
-(2, 1, 1, 'A', 'A', 'A', 20, 2, 90);
+(1, 1, 1, 'A', 'A', 'A', 20, 10, 50),
+(2, 1, 1, 'A', 'A', 'A', 20, 2, 90),
+(4, 1, 2, 'B', 'A', 'B', 20, 10, 50);
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,11 @@ CREATE TABLE `modulo` (
 
 INSERT INTO `modulo` (`id_modulo`, `id_curso`, `nivel`, `cargaHoraria`, `preco`, `publico`, `semestre`, `ano`, `conteudo`) VALUES
 (1, 1, 'Básico', 20, 200, 'Infantil', 1, 2016, 'Inicial de Inglês'),
-(2, 1, 'Intermediário', 40, 250, 'Infantil', 2, 2016, 'Intermediario de Inglês');
+(2, 1, 'Intermediário', 40, 250, 'Infantil', 2, 2016, 'Intermediario de Inglês'),
+(3, 3, 'Médio', 40, 200, 'intermediario', 2, 2017, 'Tudo sobre...'),
+(5, 3, 'Médio', 40, 200, 'intermediario', 2, 2017, 'Tudo sobre...'),
+(6, 3, 'Médio', 40, 200, 'intermediario', 2, 2017, 'Tudo sobre...'),
+(7, 4, 'basico', 6, 0, 'todos', 1, 2016, 'workshop');
 
 -- --------------------------------------------------------
 
@@ -144,7 +152,9 @@ CREATE TABLE `professor` (
 --
 
 INSERT INTO `professor` (`id_professor`, `modulo`, `nome`, `user`, `senha`, `cargaHoraria`, `salario`, `especialidade`, `ativado`) VALUES
-(1, 1, 'José Antônio', 'jose.antonio', 'professorguaru', 20, 1000, 'Inglês para crianças', 1);
+(1, 1, 'José Antônio', 'jose.antonio', 'professorguaru', 20, 1000, 'Inglês para crianças', 1),
+(2, 2, 'Mericó Cadastronico', 'merico.cadastronico', 'professorguaru', 20, 1000, 'Inglês para adultos', 0),
+(3, 3, 'Egenor', 'egenor', 'professorguaru', 40, 1700, 'Aulas Dinamicas', 1);
 
 -- --------------------------------------------------------
 
@@ -179,7 +189,7 @@ INSERT INTO `usuario` (`id`, `nome`, `user`, `senha`, `cargo`, `acesso`, `dataSe
 -- Indexes for table `aluno`
 --
 ALTER TABLE `aluno`
-  ADD PRIMARY KEY (`ra`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `modulo` (`modulo`),
   ADD KEY `modulo_2` (`modulo`);
 
@@ -225,7 +235,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `ra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `curso`
 --
@@ -235,12 +245,12 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT for table `modulo`
 --
 ALTER TABLE `modulo`
-  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_modulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `id_professor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_professor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
@@ -260,7 +270,7 @@ ALTER TABLE `aluno`
 -- Limitadores para a tabela `aulas`
 --
 ALTER TABLE `aulas`
-  ADD CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`ra`),
+  ADD CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `aluno` (`id`),
   ADD CONSTRAINT `aulas_ibfk_2` FOREIGN KEY (`id_professor`) REFERENCES `professor` (`id_professor`),
   ADD CONSTRAINT `aulas_ibfk_3` FOREIGN KEY (`id_modulo`) REFERENCES `modulo` (`id_modulo`);
 
