@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+.container{
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #AAEEAA;
+}
+body {
+	font-family: sans-serif;
+	background-color: #AAEEAA;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+form, h2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.menu {
+	float:left;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GuaruEnglish</title>
+</h:head>
+<h:body>
+	<div class="container">
+		<h2>Cadastrar Novo Módulo</h2>
+        <br />
+    <h:form id="form">
+   		<h:outputLabel for="idc" value="ID do curso:"/>
+		<p:inputText style="width: 400px" required="true" id="idc" value="#{secretariaMB.modulo.id_curso}"/>
+		<br />
+		<h:outputLabel for="nivel" value="Nivel:"/>
+		<p:inputText style="width: 400px" required="true" id="nivel" value="#{secretariaMB.modulo.nivel}"/>
+		<br />
+		<h:outputLabel for="carga" value="Carga Horária:"/>
+		<p:inputText style="width: 400px" required="true" id="carga" value="#{secretariaMB.modulo.cargaHoraria}"/>
+		<br />
+		<h:outputLabel for="preco" value="Preço:"/>
+		<p:inputText style="width: 400px" required="true" id="preco" value="#{secretariaMB.modulo.preco}"/>
+		<br />
+		<h:outputLabel for="publico" value="Publico:"/>
+		<p:inputText style="width: 400px" required="true" id="publico" value="#{secretariaMB.modulo.publico}"/>
+		<br />
+		<h:outputLabel for="semestre" value="Semestre:"/>
+		<p:inputText style="width: 400px" required="true" id="semestre" value="#{secretariaMB.modulo.semestre}"/>
+		<br />
+		<h:outputLabel for="ano" value="Ano:"/>
+		<p:inputText style="width: 400px" required="true" id="ano" value="#{secretariaMB.modulo.ano}"/>
+		<br />
+		<h:outputLabel for="conteudo" value="Conteudo:"/>
+		<p:inputTextarea rows="5" cols="50" style="width: 400px" required="true" id="conteudo" value="#{secretariaMB.modulo.conteudo}"/>
+		<br />
+		<p:commandButton  action="#{secretariaMB.novoModulo}" value="Cadastrar" ajax="false" style="width: 210px" />
+        <br />
+    </h:form>
+    <h:form>
+    	<p:commandButton  action="#{secretariaMB.voltar}" value="Voltar" ajax="false" style="width: 210px" />
+	</h:form>
+	</div>
+</h:body>
+</html>

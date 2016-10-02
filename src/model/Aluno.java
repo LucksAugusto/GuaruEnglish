@@ -1,9 +1,8 @@
 package model;
 
-import java.util.Date;
-
 public class Aluno {
 
+	private Integer id;
 	private Integer ra;
 	private String modulo;
 	private String nome;
@@ -11,10 +10,16 @@ public class Aluno {
 	private String rg;
 	private Float pagamento;
 	private Integer desconto;
-	private Date dataMatricula;
+	private String dataMatricula;
 	private Integer parcelas;
 	private Integer requerimento;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Integer getRa() {
 		return ra;
 	}
@@ -57,10 +62,10 @@ public class Aluno {
 	public void setDesconto(Integer desconto) {
 		this.desconto = desconto;
 	}
-	public Date getDataMatricula() {
+	public String getDataMatricula() {
 		return dataMatricula;
 	}
-	public void setDataMatricula(Date dataMatricula) {
+	public void setDataMatricula(String dataMatricula) {
 		this.dataMatricula = dataMatricula;
 	}
 	public Integer getParcelas() {

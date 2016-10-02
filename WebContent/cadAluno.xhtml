@@ -8,19 +8,26 @@
 <h:head>
 <style>
 .container{
-	width: 50%;
-	margin: 10% auto;
-	background-color: #B2DFDB;
-	border-radius: 10px;
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #588AB0;
 }
 body {
-	overflow: hidden;
 	font-family: sans-serif;
+	background-color: #588AB0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
-form {
+form, h2 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+.menu {
+	float:left;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -28,24 +35,41 @@ form {
 </h:head>
 <h:body>
 	<div class="container">
-	<h:form>
-		<h2>Login</h2>
-		<br /><br />
-		<h:outputLabel for="user" value="UserName:"/>
-		<p:inputText style="width: 200px" required="true" id="user" value="#{loginMB.user}"/>
-		<br />
-		<h:outputLabel for="password" value="Senha:"/>
-		<p:password style="width: 200px" required="true" id="password" value="#{loginMB.password}"/>
-		<br />
-		<h:outputLabel for="selecione" value="Perfil de Acesso:"/>
-		<p:selectOneMenu id="selecione" style="width: 173px" value="#{loginMB.opc}">
-			<f:selectItem itemLabel="Secretaria" itemValue="Secretaria" />
-            <f:selectItem itemLabel="Professor" itemValue="Professor" />
-            <f:selectItem itemLabel="Aluno" itemValue="Aluno" />
-        </p:selectOneMenu>
+		<h2>Cadastrar novo Aluno</h2>
         <br />
-        <p:commandButton  action="#{loginMB.validate}" value="Logar" ajax="false" style="width: 210px" />
+    <h:form id="form">
+    	<h:outputLabel for="ra" value="RA do Aluno:"/>
+		<p:inputText style="width: 400px" required="true" id="ra" value="#{secretariaMB.aluno.ra}"/>
+		<br />
+   		<h:outputLabel for="nome" value="Nome do Aluno:"/>
+		<p:inputText style="width: 400px" required="true" id="nome" value="#{secretariaMB.aluno.nome}"/>
+		<br />
+		<h:outputLabel for="senha" value="Senha:"/>
+		<p:inputText style="width: 400px" required="true" id="senha" value="#{secretariaMB.aluno.senha}"/>
+		<br />
+		<h:outputLabel for="modulo" value="Módulo Cadastrado:"/>
+		<p:inputText style="width: 400px" required="true" id="modulo" value="#{secretariaMB.aluno.modulo}"/>
+		<br />
+		<h:outputLabel for="rg" value="RG:"/>
+		<p:inputText style="width: 400px" required="true" id="rg" value="#{secretariaMB.aluno.rg}"/>
+		<br />
+		<h:outputLabel for="pagamento" value="Pagamento:"/>
+		<p:inputText style="width: 400px" required="true" id="pagamento" value="#{secretariaMB.aluno.pagamento}"/>
+		<br />
+		<h:outputLabel for="desconto" value="Desconto:"/>
+		<p:inputText style="width: 400px" required="true" id="desconto" value="#{secretariaMB.aluno.desconto}"/>
+		<br />
+		<h:outputLabel for="parcelas" value="Parcelas:"/>
+		<p:inputText style="width: 400px" required="true" id="parcelas" value="#{secretariaMB.aluno.parcelas}"/>
+		<br />
+		<h:outputLabel for="dataMatricula" value="Data de Matricula: "/>
+		<p:inputText style="width: 400px" required="true" id="dataMatricula" value="#{secretariaMB.aluno.dataMatricula}"/>
+		<br />
+		<p:commandButton  action="#{secretariaMB.novoAluno}" value="Cadastrar" ajax="false" style="width: 210px" />
         <br />
+    </h:form>
+    <h:form>
+    	<p:commandButton  action="#{secretariaMB.voltar}" value="Voltar" ajax="false" style="width: 210px" />
 	</h:form>
 	</div>
 </h:body>

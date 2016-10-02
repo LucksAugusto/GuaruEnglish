@@ -39,8 +39,8 @@ form, h2 {
 		<h2>Atribuir Nota</h2>
         <br />
     <h:form id="form">
-   		<h:outputLabel for="ra" value="RA Aluno:"/>
-		<p:inputText style="width: 400px" required="true" id="ra" value="#{professorMB.aulas.id_aluno}"/>
+   		<h:outputLabel for="id" value="ID Aluno:"/>
+		<p:inputText style="width: 400px" required="true" id="id" value="#{professorMB.aulas.id_aluno}"/>
 		<br />
 		<h:outputLabel for="id" value="Código Professor:"/>
 		<p:inputText style="width: 400px" required="true" id="id" value="#{professorMB.aulas.id_professor}"/>
@@ -67,9 +67,11 @@ form, h2 {
 		<p:inputText style="width: 400px" required="true" id="freq" value="#{professorMB.aulas.frequencia}"/>
 		<br />
 		<p:commandButton  action="#{professorMB.atribuir}" value="Atribuir Nota" ajax="false" style="width: 210px" />
-	    <p:commandButton  action="#{loginMB.logout}" value="Sair" ajax="false" style="width: 210px" />
         <br />
     </h:form>
+    <h:form>
+    	<p:commandButton  action="#{loginMB.logout}" value="Sair" ajax="false" style="width: 210px" />
+	</h:form>
 	</div>
 
 </h:body>

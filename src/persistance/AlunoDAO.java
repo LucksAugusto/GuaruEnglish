@@ -10,7 +10,7 @@ import model.Aluno;
 public class AlunoDAO {
 	public ArrayList<Aluno> carregaRequerimentos() throws Exception {
 		ArrayList<Aluno> alunoReq = new ArrayList<Aluno>();
-		String SQL = "SELECT a.ra, c.idioma, a.nome, a.rg, a.requerimento FROM aluno a"
+		String SQL = "SELECT a.id, c.idioma, a.nome, a.rg, a.requerimento FROM aluno a"
 				+ " INNER JOIN modulo m ON m.id_modulo = a.modulo"
 				+ " INNER JOIN curso c ON m.id_curso = c.id_curso"
 				+ " WHERE a.requerimento = 1";
@@ -19,7 +19,7 @@ public class AlunoDAO {
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Aluno aluno = new Aluno();
-			aluno.setRa(rs.getInt(1));
+			aluno.setId(rs.getInt(1));
 			aluno.setModulo(rs.getString(2));
 			aluno.setNome(rs.getString(3));
 			aluno.setRg(rs.getString(4));

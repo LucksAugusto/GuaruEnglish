@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+.container{
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #7AAAA8;
+}
+body {
+	font-family: sans-serif;
+	background-color: #7AAAA8;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+form, h2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.menu {
+	float:left;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GuaruEnglish</title>
+</h:head>
+<h:body>
+	<div class="container">
+		<h2>Cadastrar novo Professor</h2>
+        <br />
+    <h:form id="form">
+    	<h:outputLabel for="modulo" value="Módulo Cadastrado:"/>
+		<p:inputText style="width: 400px" required="true" id="modulo" value="#{secretariaMB.professor.id_modulo}"/>
+		<br />
+   		<h:outputLabel for="nome" value="Nome do Professor:"/>
+		<p:inputText style="width: 400px" required="true" id="nome" value="#{secretariaMB.professor.nome}"/>
+		<br />
+		<h:outputLabel for="user" value="User: "/>
+		<p:inputText style="width: 400px" required="true" id="user" value="#{secretariaMB.professor.user}"/>
+		<br />
+		<h:outputLabel for="carga" value="Carga Horária: "/>
+		<p:inputText style="width: 400px" required="true" id="carga" value="#{secretariaMB.professor.cargaHoraria}"/>
+		<br />
+		<h:outputLabel for="salario" value="Salário:"/>
+		<p:inputText style="width: 400px" required="true" id="salario" value="#{secretariaMB.professor.salario}"/>
+		<br />
+		<h:outputLabel for="especialidade" value="Especialidade:"/>
+		<p:inputText style="width: 400px" required="true" id="especialidade" value="#{secretariaMB.professor.especialidade}"/>
+		<br />
+		<p:commandButton  action="#{secretariaMB.novoProfessor}" value="Cadastrar" ajax="false" style="width: 210px" />
+        <br />
+    </h:form>
+    <h:form>
+    	<p:commandButton  action="#{secretariaMB.voltar}" value="Voltar" ajax="false" style="width: 210px" />
+	</h:form>
+	</div>
+</h:body>
+</html>

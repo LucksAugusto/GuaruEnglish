@@ -16,7 +16,7 @@ public class AulasDAO {
 				+ " FROM aulas a"
 				+ " INNER JOIN modulo m ON m.id_modulo = a.id_modulo"
 				+ " INNER JOIN curso c ON m.id_curso = c.id_curso"
-				+ " INNER JOIN aluno al ON al.ra = a.id_aluno AND al.ra LIKE ?"
+				+ " INNER JOIN aluno al ON al.id = a.id_aluno AND al.ra LIKE ?"
 				+ " INNER JOIN professor p ON p.id_professor = a.id_professor";
 		Connection con = GenericDAO.getInstance().getConnection();
 		PreparedStatement stmt = con.prepareStatement(SQL);
